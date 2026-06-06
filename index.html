@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4efe7">
+  <title>话题宝典 · 让每次聊天都有话可说</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="话题宝典首页">
+      <span class="brand-mark">话</span>
+      <span>话题宝典</span>
+    </a>
+    <nav class="top-actions" aria-label="快捷操作">
+      <button class="text-button" id="favoritesButton">我的收藏 <span id="favoriteCount">0</span></button>
+      <button class="primary-button" id="randomButton">帮我抽一题</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CONVERSATION FIELD GUIDE</p>
+        <h1>告别尬聊，<br><em>彼此靠近。</em></h1>
+        <p class="hero-description">32 个真实场景，960 个精心设计的问题。<br>从一句好奇开始，让聊天自然发生。</p>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <span class="quote-mark">“</span>
+        <p>最近有什么小事，<br>让你觉得生活还不错？</p>
+        <span class="card-label">今日一问 · 轻松破冰</span>
+      </div>
+    </section>
+
+    <section class="explorer" id="explorer">
+      <div class="explorer-heading">
+        <div>
+          <p class="section-kicker">找到此刻需要的话题</p>
+          <h2>你想和谁聊？</h2>
+        </div>
+        <label class="search-box">
+          <span class="search-icon"></span>
+          <input id="searchInput" type="search" placeholder="搜索场景或问题..." autocomplete="off">
+          <kbd>⌘ K</kbd>
+        </label>
+      </div>
+
+      <div class="category-tabs" id="categoryTabs" role="tablist"></div>
+      <div class="result-meta">
+        <p id="resultSummary"></p>
+        <button class="clear-button hidden" id="clearSearch">清除搜索</button>
+      </div>
+      <div class="scene-grid" id="sceneGrid"></div>
+      <div class="empty-state hidden" id="emptyState">
+        <span>没有找到相关话题</span>
+        <p>换个关键词试试，或者让我们随机抽一题。</p>
+      </div>
+    </section>
+  </main>
+
+  <aside class="drawer" id="sceneDrawer" aria-hidden="true">
+    <button class="drawer-backdrop" data-close-drawer aria-label="关闭"></button>
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <button class="icon-button" data-close-drawer aria-label="关闭">×</button>
+        <div class="drawer-title-wrap">
+          <span class="drawer-number" id="drawerNumber"></span>
+          <div>
+            <p id="drawerCategory"></p>
+            <h2 id="drawerTitle"></h2>
+          </div>
+        </div>
+        <button class="shuffle-button" id="sceneRandomButton">随机一题</button>
+      </div>
+      <p class="drawer-description" id="drawerDescription"></p>
+      <div class="question-list" id="questionList"></div>
+    </div>
+  </aside>
+
+  <div class="modal" id="randomModal" aria-hidden="true">
+    <button class="modal-backdrop" data-close-modal aria-label="关闭"></button>
+    <div class="random-card">
+      <button class="modal-close" data-close-modal aria-label="关闭">×</button>
+      <p class="random-label">RANDOM QUESTION</p>
+      <p class="random-scene" id="randomScene"></p>
+      <h2 id="randomQuestion"></h2>
+      <div class="random-actions">
+        <button class="secondary-button" id="favoriteRandom">收藏这题</button>
+        <button class="primary-button" id="anotherRandom">再抽一题</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span>话题宝典</span>
+    <p>好问题不负责填满沉默，只负责打开一扇门。</p>
+    <span>32 SCENES · 960 QUESTIONS</span>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
